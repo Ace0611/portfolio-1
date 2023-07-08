@@ -1,10 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import {useRef, useEffect} from 'react';
 
 function App() {
+  const canvasRef = useRef();
+
+  useEffect(() => {
+    if(canvasRef.current){
+      // canvasRef.current.getContext('2d');
+    }
+  })
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +25,8 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <canvas width="140" height="200" ref={canvasRef}>testing canvas</canvas>
     </div>
   );
 }
