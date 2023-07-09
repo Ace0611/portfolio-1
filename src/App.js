@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useRef, useEffect} from 'react';
+import YouTubeBackground from './components/YoutubeBackground';
 
 function App() {
   const canvasRef = useRef();
@@ -26,7 +27,12 @@ function App() {
           Learn React
         </a>
       </header> */}
-      <canvas width="140" height="200" ref={canvasRef}>testing canvas</canvas>
+      {/* <figure>
+        <video autoplay loop muted>
+        <source src="/static/videos/pays-des-lacs_h265_04.mp4" type="video/mp4; codecs=&quot;hvc1&quot;"/>
+        </video>
+      </figure> */}
+      <YouTubeBackground/>
     </div>
   );
 }
