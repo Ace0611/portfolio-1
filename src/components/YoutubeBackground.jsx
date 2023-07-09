@@ -25,7 +25,7 @@ const YoutubeBackground = () => {
             videoId= 'ZSt9tm3RoUU'
             opts={videoOpts}
             onReady={onReady}
-            className="video-background"
+            iframeClassName="video-background"
         />
       )
 }
