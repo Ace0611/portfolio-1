@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  animation: blink 1s linear infinite;
+  animation: blink 2s ease-in-out infinite;
 }
 
 .App-logo {
@@ -10,7 +10,9 @@
 
 @keyframes blink{
   0%{ opacity: 0;}
+  25%{ opacity: 0.25;}
   50%{ opacity: .5;}
+  75%{opacity: .75;}
   100%{ opacity: 1;}
 }
 
@@ -27,7 +29,7 @@
   width: 100%;
   height: 90%;
   z-index: -1;
-  opacity: 0.3;
+  /* opacity: 0.3; */
   background: black;
 }
 
