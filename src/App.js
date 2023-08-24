@@ -4,11 +4,12 @@ import OpenAI from "openai"
 
 function App() {
   const openai = new OpenAI({
-    apiKey: "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",
+    // apiKey: process.env.OPENAI_API_KEY,
+    apiKey: "huhabhajan",
     dangerouslyAllowBrowser: true,
   })
 
-  console.log('what is process env', process.env);
+  console.log('what is openai key', process.env);
   console.log('what is openAI', openai);
 
   return (
