@@ -31,7 +31,7 @@ export type State = {
     message?: string | null;
 }
 
-export async function createInvoice(prevState: StaticRange, formData: FormData) {
+export async function createInvoice(prevState: State, formData: FormData) {
         const validatedFields = CreateInvoice.safeParse({
             customerId: formData.get('customerId'),
             amount: formData.get('amount'),
