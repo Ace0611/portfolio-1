@@ -4,7 +4,7 @@ const port = 3000
 
 app.get('/', (req, res) => {
   res.json({
-    "hey": "NodeJs"
+    "hey": "NodeJswa"
   })
 })
 
@@ -18,6 +18,6 @@ app.all('secret', (req, res, next) => {
     next() // pass control to the next handler
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
 })

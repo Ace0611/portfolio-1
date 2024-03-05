@@ -1,35 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
 import OpenAI from "openai"
+import { useCallback, useState, useContext, createContext } from "react";
+
+const UserContext = createContext();
 
 function App() {
-  const openai = new OpenAI({
-    // apiKey: process.env.OPENAI_API_KEY,
-    apiKey: "huhabhajan",
-    dangerouslyAllowBrowser: true,
-  })
+  const [counter, setCounter] = useState(0);
 
-  console.log('what is openai key', process.env);
-  console.log('what is openAI', openai);
+  const handleIncrement = useCallback(() => {
+    setCounter((prev) => prev + 1);
+  }, []);
+
+  const handleDelayedIncrement = useCallback(() => {
+    // counter + 1 is the problem,
+    // because the counter can be already different, when callback invokes
+    setTimeout(() => setCounter((prev) => prev + 1), 1000);
+  }, [counter]);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          <p>There is a competition</p>
-          <p>Updating this for merging</p>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>{`Counter is ${counter}`}</h1>
+      {/* This handler works just fine */}
+      <button onClick={handleIncrement}>Instant increment</button>
+      {/* Multi-clicking that handler causes unexpected states updates */}
+      <button onClick={handleDelayedIncrement}>Delayed increment</button>
     </div>
   );
 }
